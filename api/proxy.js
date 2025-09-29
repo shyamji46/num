@@ -7,7 +7,8 @@ export default async function handler(req, res) {
   try {
     const response = await fetch(target, { headers: { "User-Agent": "Mozilla/5.0" } });
     const data = await response.text();
-    res.status(200).send(data);
+
+    res.status(200).send(data); // raw JSON/text from API
   } catch (err) {
     res.status(500).json({ status: "error", message: err.toString() });
   }
